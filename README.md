@@ -10,3 +10,4 @@ Generated site scaffold (React + Tailwind). Edit content in `src/pages` and `src
 - Tailwind is included in devDependencies — run `npm install` to install it.
 - Replace Firebase config in `src/firebaseConfig.js` with your project's values.
 # elsies-childcare-center
+
