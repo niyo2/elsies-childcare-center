@@ -1,12 +1,6 @@
 // src/components/MeetTheDirector.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-// inside About.jsx
-import MeetTheDirector from "../components/MeetTheDirector";
-
-// in JSX:
-<MeetTheDirector />
-
 
 export default function MeetTheDirector() {
   return (
