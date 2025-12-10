@@ -24,6 +24,7 @@ import StaffDetail from "./pages/StaffDetail";
 import ParentHandbook from "./pages/ParentHandbook";
 import Careers from "./pages/Careers";
 
+
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
