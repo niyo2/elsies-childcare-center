@@ -1,1 +1,0 @@
-Place your logo image file here as src/assets/logo.png or logo.svg
