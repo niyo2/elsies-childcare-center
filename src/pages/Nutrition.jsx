@@ -1,98 +1,52 @@
 import React from "react";
-import PageContainer from "../components/PageContainer";
+
+const MENU = [
+  {
+    meal: "Breakfast",
+    items: "Oatmeal, fruit slices, whole grain toast, milk.",
+  },
+  {
+    meal: "Morning Snack",
+    items: "Yogurt, crackers, fruit cups.",
+  },
+  {
+    meal: "Lunch",
+    items: "Grilled chicken, rice, veggies, fruit, milk.",
+  },
+  {
+    meal: "Afternoon Snack",
+    items: "Cheese sticks, applesauce, pretzels.",
+  },
+];
 
 export default function Nutrition() {
   return (
-    <PageContainer>
-      
-      {/* Hero Section */}
-      <section className="text-center mb-16">
-        <h1 className="text-pink-700">Meals & Nutrition</h1>
-        <p className="mt-4 max-w-2xl mx-auto">
-          We provide healthy, balanced meals that support growing bodies and 
-          curious minds. Our menu is created with children’s wellness, 
-          energy levels, and dietary needs in mind.
+    <div className="space-y-8">
+      <header className="pb-4 border-b border-slate-200">
+        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Nutrition</h1>
+        <p className="mt-2 text-slate-600 max-w-2xl">
+          Healthy meals and snacks are an important part of your child’s day.
+          We provide balanced options that support growth and energy.
         </p>
+      </header>
+
+      <section className="grid gap-6 sm:grid-cols-2">
+        {MENU.map((item) => (
+          <div
+            key={item.meal}
+            className="rounded-2xl bg-slate-50 border border-slate-200 p-5"
+          >
+            <p className="text-xs font-semibold text-sky-700 uppercase tracking-wide">
+              {item.meal}
+            </p>
+            <p className="mt-1 text-sm text-slate-700">{item.items}</p>
+          </div>
+        ))}
       </section>
 
-      {/* Nutrition Philosophy */}
-      <section className="bg-brand-2/50 rounded-2xl p-8 mb-16 shadow-sm">
-        <h2 className="text-pink-700 mb-4">Our Nutrition Philosophy</h2>
-        <p>
-          At Elsie’s Childcare & Learning Center, we believe nutritious meals 
-          are essential to learning and development. We offer fresh fruits, 
-          whole grains, lean proteins, and child-friendly meals designed to 
-          promote healthy eating habits from a young age.
-        </p>
-      </section>
-
-      {/* Weekly Sample Menu */}
-      <section className="mb-10">
-        <h2 className="text-pink-700 mb-8 text-center">Weekly Sample Menu</h2>
-
-        <div className="grid md:grid-cols-2 gap-8">
-
-          {/* Monday */}
-          <div className="bg-brand-1 p-6 rounded-2xl shadow-sm">
-            <h3 className="text-pink-700 mb-3">Monday</h3>
-            <ul className="list-disc list-inside space-y-2 text-gray-600">
-              <li>Breakfast: Oatmeal + Fresh Berries</li>
-              <li>Lunch: Grilled Chicken, Rice & Veggies</li>
-              <li>Snack: Apple Slices & Crackers</li>
-            </ul>
-          </div>
-
-          {/* Tuesday */}
-          <div className="bg-brand-2 p-6 rounded-2xl shadow-sm">
-            <h3 className="text-pink-700 mb-3">Tuesday</h3>
-            <ul className="list-disc list-inside space-y-2 text-gray-600">
-              <li>Breakfast: Scrambled Eggs + Toast</li>
-              <li>Lunch: Pasta with Meat Sauce & Salad</li>
-              <li>Snack: Yogurt & Fruit</li>
-            </ul>
-          </div>
-
-          {/* Wednesday */}
-          <div className="bg-pink-50 p-6 rounded-2xl shadow-sm">
-            <h3 className="text-pink-700 mb-3">Wednesday</h3>
-            <ul className="list-disc list-inside space-y-2 text-gray-600">
-              <li>Breakfast: Whole Grain Cereal + Milk</li>
-              <li>Lunch: Turkey Sandwich & Carrot Sticks</li>
-              <li>Snack: Cheese Cubes & Crackers</li>
-            </ul>
-          </div>
-
-          {/* Thursday */}
-          <div className="bg-brand-1 p-6 rounded-2xl shadow-sm">
-            <h3 className="text-pink-700 mb-3">Thursday</h3>
-            <ul className="list-disc list-inside space-y-2 text-gray-600">
-              <li>Breakfast: Pancakes + Banana Slices</li>
-              <li>Lunch: Beef Stew & Rice</li>
-              <li>Snack: Fruit Cup</li>
-            </ul>
-          </div>
-
-          {/* Friday */}
-          <div className="bg-brand-2 p-6 rounded-2xl shadow-sm">
-            <h3 className="text-pink-700 mb-3">Friday</h3>
-            <ul className="list-disc list-inside space-y-2 text-gray-600">
-              <li>Breakfast: Waffles + Strawberries</li>
-              <li>Lunch: Baked Fish, Mashed Potatoes, Mixed Veggies</li>
-              <li>Snack: Granola Bar</li>
-            </ul>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Closing */}
-      <section className="mt-16 text-center">
-        <p className="max-w-2xl mx-auto">
-          We accommodate dietary restrictions and allergies. Please discuss 
-          your child’s needs with our staff so we can ensure safe, nutritious meals.
-        </p>
-      </section>
-
-    </PageContainer>
+      <p className="text-sm text-slate-600">
+        *Menu may vary weekly. Please notify us of any allergies or dietary needs.*
+      </p>
+    </div>
   );
 }

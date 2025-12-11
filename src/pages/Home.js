@@ -32,7 +32,7 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-3">
               <Link
-                to="/enrollment"
+                to="/enroll"
                 className="inline-flex items-center justify-center rounded-full bg-white text-sky-700 px-6 py-3 text-sm font-semibold shadow-lg hover:bg-slate-100 transition transform hover:-translate-y-0.5"
               >
                 Start Enrollment

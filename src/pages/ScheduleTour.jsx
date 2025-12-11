@@ -1,122 +1,65 @@
-import React, { useState } from "react";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
-import { db } from "../firebase";
-import Contact from "./Contact";
+import React from "react";
 
 export default function ScheduleTour() {
-  const [form, setForm] = useState({
-    parentName: "",
-    childName: "",
-    phone: "",
-    date: "",
-    time: "",
-  });
-
-  const [status, setStatus] = useState("");
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setStatus("submitted");
-
-    setTimeout(() => {
-      setStatus("");
-      setForm({
-        parentName: "",
-        childName: "",
-        phone: "",
-        date: "",
-        time: "",
-      });
-    }, 2000);
-  };
-
   return (
-    <div className="min-h-screen bg-blue-50 py-12 px-4">
-      <div className="max-w-3xl mx-auto bg-white shadow-lg p-8 rounded-2xl">
-        <h1 className="text-3xl font-bold text-sky-900 text-center mb-6">
-          Schedule a Tour
-        </h1>
+    <div className="space-y-8">
+      <header className="border-b border-slate-200 pb-4">
+        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Schedule a Tour</h1>
+        <p className="mt-2 text-slate-600 max-w-2xl">
+          We invite you and your family to visit our center, meet our staff, 
+          and see our classrooms in action.
+        </p>
+      </header>
 
-        <form onSubmit={handleSubmit} className="grid gap-4">
+      <form className="grid gap-4 md:grid-cols-2">
+        <div className="flex flex-col gap-1">
+          <label className="text-xs font-semibold text-slate-700">Your Name</label>
+          <input
+            className="border border-slate-300 rounded-lg px-3 py-2 text-sm"
+            placeholder="Full name"
+          />
+        </div>
 
-          <div>
-            <label className="text-sm font-medium">Parent Name</label>
-            <input
-              type="text"
-              name="parentName"
-              value={form.parentName}
-              onChange={handleChange}
-              className="w-full mt-1 px-3 py-2 border rounded-md"
-              required
-            />
-          </div>
+        <div className="flex flex-col gap-1">
+          <label className="text-xs font-semibold text-slate-700">Email</label>
+          <input
+            type="email"
+            className="border border-slate-300 rounded-lg px-3 py-2 text-sm"
+            placeholder="you@example.com"
+          />
+        </div>
 
-          <div>
-            <label className="text-sm font-medium">Child’s Name</label>
-            <input
-              type="text"
-              name="childName"
-              value={form.childName}
-              onChange={handleChange}
-              className="w-full mt-1 px-3 py-2 border rounded-md"
-            />
-          </div>
+        <div className="flex flex-col gap-1">
+          <label className="text-xs font-semibold text-slate-700">Phone</label>
+          <input
+            className="border border-slate-300 rounded-lg px-3 py-2 text-sm"
+            placeholder="(xxx) xxx-xxxx"
+          />
+        </div>
 
-          <div>
-            <label className="text-sm font-medium">Phone Number</label>
-            <input
-              type="text"
-              name="phone"
-              value={form.phone}
-              onChange={handleChange}
-              className="w-full mt-1 px-3 py-2 border rounded-md"
-              required
-            />
-          </div>
+        <div className="flex flex-col gap-1">
+          <label className="text-xs font-semibold text-slate-700">Preferred Date</label>
+          <input type="date" className="border border-slate-300 rounded-lg px-3 py-2 text-sm" />
+        </div>
 
-          <div>
-            <label className="text-sm font-medium">Preferred Date</label>
-            <input
-              type="date"
-              name="date"
-              value={form.date}
-              onChange={handleChange}
-              className="w-full mt-1 px-3 py-2 border rounded-md"
-              required
-            />
-          </div>
+        <div className="md:col-span-2 flex flex-col gap-1">
+          <label className="text-xs font-semibold text-slate-700">Message (optional)</label>
+          <textarea
+            rows="3"
+            className="border border-slate-300 rounded-lg px-3 py-2 text-sm"
+            placeholder="Any specific questions or needs?"
+          />
+        </div>
 
-          <div>
-            <label className="text-sm font-medium">Preferred Time</label>
-            <input
-              type="time"
-              name="time"
-              value={form.time}
-              onChange={handleChange}
-              className="w-full mt-1 px-3 py-2 border rounded-md"
-              required
-            />
-          </div>
-
+        <div className="md:col-span-2 flex justify-end">
           <button
-            type="submit"
-            className="mt-6 w-full bg-sky-700 hover:bg-sky-800 text-white py-2 rounded-lg font-semibold"
+            type="button"
+            className="rounded-full bg-sky-600 text-white px-5 py-2 text-sm hover:bg-sky-700"
           >
-            Submit
+            Request Tour
           </button>
-
-          {status === "submitted" && (
-            <p className="mt-4 text-green-600 text-center font-semibold">
-              Tour request submitted!
-            </p>
-          )}
-
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   );
 }

@@ -1,88 +1,54 @@
-import React, { useState } from "react";
-import { db } from "../firebase";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import React from "react";
 
-const ContactPage = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [message, setMessage] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      await addDoc(collection(db, "contactMessages"), {
-        name,
-        email,
-        phone,
-        message,
-        submittedAt: Timestamp.now()
-      });
-
-      alert("Message sent successfully!");
-
-      // Reset form
-      setName("");
-      setEmail("");
-      setPhone("");
-      setMessage("");
-    } catch (error) {
-      console.error("Error sending message:", error);
-      alert("There was an error. Please try again.");
-    }
-  };
-
+export default function Contact() {
   return (
-    <div className="p-8 max-w-xl mx-auto">
-      <h1 className="text-3xl font-semibold mb-6">Contact Us</h1>
+    <div className="space-y-8">
+      <header className="border-b border-slate-200 pb-4">
+        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Contact Us</h1>
+        <p className="mt-2 text-slate-600 max-w-2xl">
+          Have questions? We’re here to help. Reach out anytime!
+        </p>
+      </header>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <section className="grid gap-6 md:grid-cols-2 text-sm">
+        <div className="space-y-4">
+          <h2 className="text-lg font-semibold text-slate-900">Center Information</h2>
+          <p className="text-slate-700">
+            <strong>Address:</strong> Midland, Texas  
+          </p>
+          <p className="text-slate-700">
+            <strong>Phone:</strong> (Add your number)
+          </p>
+          <p className="text-slate-700">
+            <strong>Email:</strong> (Add your email)
+          </p>
+          <p className="text-slate-700">
+            <strong>Hours:</strong> Monday–Friday, 6 AM – 6 PM
+          </p>
+        </div>
 
-        <input
-          type="text"
-          placeholder="Full Name"
-          className="w-full p-3 border rounded"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
+        <form className="space-y-4">
+          <div className="flex flex-col">
+            <label className="text-xs font-semibold text-slate-700">Your Name</label>
+            <input className="border rounded-lg px-3 py-2 text-sm" placeholder="Full Name" />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-xs font-semibold text-slate-700">Email</label>
+            <input className="border rounded-lg px-3 py-2 text-sm" placeholder="you@example.com" />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-xs font-semibold text-slate-700">Message</label>
+            <textarea className="border rounded-lg px-3 py-2 text-sm" rows="4" />
+          </div>
 
-        <input
-          type="email"
-          placeholder="Email Address"
-          className="w-full p-3 border rounded"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-
-        <input
-          type="tel"
-          placeholder="Phone Number"
-          className="w-full p-3 border rounded"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-
-        <textarea
-          placeholder="Your Message"
-          className="w-full p-3 border rounded h-32"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          required
-        />
-
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-3 rounded"
-        >
-          Send Message
-        </button>
-
-      </form>
+          <button
+            type="button"
+            className="rounded-full bg-sky-600 text-white px-5 py-2 text-sm hover:bg-sky-700"
+          >
+            Send Message
+          </button>
+        </form>
+      </section>
     </div>
   );
-};
-
-export default ContactPage;
+}
