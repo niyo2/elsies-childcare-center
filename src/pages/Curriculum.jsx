@@ -1,3 +1,4 @@
+// src/pages/Curriculum.jsx
 import React from "react";
 import {
   BookOpenIcon,
@@ -45,12 +46,12 @@ export default function Curriculum() {
   return (
     <div className="space-y-8 animate-fadeIn">
       <header className="pb-4 border-b border-slate-200">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 animate-slideUp">
+        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">
           Curriculum
         </h1>
         <p className="mt-2 text-slate-600 max-w-2xl">
-          Our curriculum blends play-based learning with structured activities that support
-          early development and prepare children for kindergarten.
+          Our curriculum blends play-based learning with structured activities that
+          support early development and prepare children for kindergarten.
         </p>
       </header>
 

@@ -1,3 +1,4 @@
+// src/pages/Programs.jsx
 import React from "react";
 import {
   UserGroupIcon,
@@ -30,11 +31,12 @@ export default function Programs() {
   return (
     <div className="space-y-8 animate-fadeIn">
       <header className="border-b border-slate-200 pb-4">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 animate-slideUp">
+        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">
           Our Programs
         </h1>
         <p className="mt-2 text-slate-600 max-w-2xl">
-          Age-specific classrooms that nurture your child’s growth.
+          Age-specific classrooms that nurture your child’s growth—from first steps
+          to first day of kindergarten.
         </p>
       </header>
 

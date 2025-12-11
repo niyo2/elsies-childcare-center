@@ -1,8 +1,10 @@
 import React from "react";
+import logo from "../assets/logo.png";
 
 export default function About() {
   return (
     <div className="space-y-8">
+    <img src={logo} alt="Logo" className="h-20 w-auto mx-auto mb-6 drop-shadow" />
       <header className="border-b border-slate-200 pb-4">
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">
           About Elsie’s Childcare & Learning Center

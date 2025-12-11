@@ -1,20 +1,26 @@
+// src/components/Footer.jsx
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-white/10 backdrop-blur-xl text-white py-12 mt-16 border-t border-white/10">
+    <footer className="bg-gradient-to-r from-sky-700 to-indigo-700 text-white py-12 mt-16">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 px-6">
 
-        {/* Brand */}
-        <div>
-          <h2 className="text-2xl font-bold mb-2">Elsie’s Childcare</h2>
+        {/* LOGO + BRAND */}
+        <div className="space-y-3">
+          <img
+            src={logo}
+            alt="Elsie's Logo"
+            className="h-16 w-auto drop-shadow"
+          />
           <p className="text-sm text-white/80">
-            Guiding Little Minds With Gentle Hands.
+            Guiding little minds with gentle hands.
           </p>
         </div>
 
-        {/* Quick Links */}
+        {/* QUICK LINKS */}
         <div>
           <h3 className="font-semibold text-lg mb-3">Quick Links</h3>
           <ul className="space-y-2 text-sm text-white/80">
@@ -25,7 +31,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Resources */}
+        {/* RESOURCES */}
         <div>
           <h3 className="font-semibold text-lg mb-3">Resources</h3>
           <ul className="space-y-2 text-sm text-white/80">
@@ -36,12 +42,12 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact */}
+        {/* CONTACT */}
         <div>
           <h3 className="font-semibold text-lg mb-3">Contact</h3>
           <p className="text-sm text-white/80">Midland, Texas</p>
-          <p className="text-sm text-white/80">Phone: (Add Phone)</p>
-          <p className="text-sm text-white/80">Email: (Add Email)</p>
+          <p className="text-sm text-white/80">Phone: (add number)</p>
+          <p className="text-sm text-white/80">Email: (add email)</p>
         </div>
       </div>
 
