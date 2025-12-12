@@ -63,6 +63,9 @@ export default function Footer() {
               info@elsieschildcarecenter.com
             </a>
           </p>
+          <p className="text-sm font-semibold mt-2">
+            🕒 Open 24 / 7
+          </p>
         </div>
       </div>
 

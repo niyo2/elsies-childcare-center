@@ -60,7 +60,8 @@ export default function Home() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
               <div className="border-l-2 border-sky-200/70 pl-3">
                 <p className="uppercase tracking-wide text-sky-100">Hours</p>
-                <p className="font-semibold text-white">Mon–Fri · 6:00 AM – 6:00 PM</p>
+                <p className="font-semibold text-white">Open 24 / 7 </p>
+
               </div>
               <div className="border-l-2 border-sky-200/70 pl-3">
                 <p className="uppercase tracking-wide text-sky-100">Age Groups</p>

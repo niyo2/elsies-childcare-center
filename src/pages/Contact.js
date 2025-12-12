@@ -30,6 +30,7 @@ export default function Contact() {
             info@elsieschildcarecenter.com
           </a>
         </p>
+        <p><strong>🕒 Hours:</strong> Open 24 / 7</p>
       </div>
     </div>
   );
