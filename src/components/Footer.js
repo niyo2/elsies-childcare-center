@@ -42,12 +42,27 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* CONTACT */}
+        {/* CONTACT INFO */}
         <div>
           <h3 className="font-semibold text-lg mb-3">Contact</h3>
+
           <p className="text-sm text-white/80">Midland, Texas</p>
-          <p className="text-sm text-white/80">Phone: (add number)</p>
-          <p className="text-sm text-white/80">Email: (add email)</p>
+
+          {/* PHONE */}
+          <p className="text-sm text-white/80">
+            Phone:{" "}
+            <a href="tel:4322158560" className="underline hover:text-brandBlueLight">
+              (432) 215-8560
+            </a>
+          </p>
+
+          {/* EMAIL */}
+          <p className="text-sm text-white/80">
+            Email:{" "}
+            <a href="mailto:info@elsieschildcarecenter.com" className="underline hover:text-brandBlueLight">
+              info@elsieschildcarecenter.com
+            </a>
+          </p>
         </div>
       </div>
 
