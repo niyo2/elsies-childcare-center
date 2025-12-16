@@ -1,155 +1,276 @@
-// src/pages/Home.jsx
-import React from "react";
-import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";   // ✅ FIXED IMPORT
+import React, { useEffect, useState } from "react";
 
 export default function Home() {
+  // ----- Photo carousel (edit these paths to match your assets) -----
+  const images = [
+    "/assets/classroom.jpg",
+    "/assets/playtime.jpg",
+    "/assets/learning.jpg",
+    "/assets/outdoor.jpg",
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(t);
+  }, [images.length]);
+
   return (
     <div className="bg-slate-50">
+      {/* ============================================================
+          HERO (Animated gradient video - calm, Montessori-friendly)
+          ============================================================ */}
+      <section className="relative h-[90vh] overflow-hidden">
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source
+            // Soft animated gradient (placeholder)
+            src="https://cdn.coverr.co/videos/coverr-soft-gradient-motion-1600.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-      {/* HERO SECTION */}
-      <section className="relative bg-gradient-to-br from-sky-700 via-sky-600 to-indigo-700 text-white">
+        {/* overlay for readability */}
+        <div className="absolute inset-0 bg-black/40" />
 
-        {/* subtle overlay pattern */}
-        <div className="pointer-events-none absolute inset-0 opacity-20">
-          <div className="absolute -top-24 -left-10 w-72 h-72 rounded-full bg-sky-400 blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-indigo-500 blur-3xl" />
-        </div>
-
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 grid lg:grid-cols-2 gap-12 items-center">
-
-          {/* Left side text */}
-          <div className="space-y-6">
-
-            {/* LOGO — FIXED */}
-            <img 
-              src={logo}
-              alt="Elsie's Childcare Logo"
-              className="h-20 w-auto drop-shadow-xl"
-            />
-
-            <span className="inline-flex items-center rounded-full bg-white/10 px-4 py-1 text-xs font-medium backdrop-blur">
-              🌙 Guiding little minds with gentle hands, from daylight to moonlight
-            </span>
-
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
+        <div className="relative z-10 h-full flex items-center justify-center px-6">
+          <div className="max-w-4xl text-center text-white">
+            <p className="text-sm md:text-base font-semibold tracking-wide text-white/90">
               Elsie’s Childcare & Learning Center
-            </h1>
-
-            <p className="text-sm sm:text-base text-sky-100 max-w-xl">
-              A safe, nurturing, and educational home-away-from-home for children
-              ages 6 months to 5 years in Midland, Texas. Flexible care designed for
-              working families who need someone they can truly trust.
             </p>
 
-            <div className="flex flex-wrap gap-3">
-              <Link
-                to="/enroll"
-                className="inline-flex items-center justify-center rounded-full bg-white text-sky-700 px-6 py-3 text-sm font-semibold shadow-lg hover:bg-slate-100 transition transform hover:-translate-y-0.5"
+            <h1 className="mt-3 text-4xl md:text-6xl font-extrabold leading-tight">
+              Caring, Love and Nurturing
+            </h1>
+
+            <p className="mt-5 text-base md:text-xl text-white/90">
+              A safe, inclusive, and flexible childcare solution for working families
+              in Midland, Texas—focused on compassionate care, early learning, and
+              strong standards.
+            </p>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href="/enrollment"
+                className="inline-flex items-center justify-center rounded-full bg-pink-400 hover:bg-pink-500 px-7 py-3 font-semibold transition"
               >
-                Start Enrollment
-              </Link>
-              <Link
-                to="/schedule-tour"
-                className="inline-flex items-center justify-center rounded-full border border-white/70 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition transform hover:-translate-y-0.5"
+                Enroll Now
+              </a>
+              <a
+                href="/schedule-tour"
+                className="inline-flex items-center justify-center rounded-full bg-white text-slate-900 hover:bg-slate-100 px-7 py-3 font-semibold transition"
               >
                 Schedule a Tour
-              </Link>
+              </a>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
-              <div className="border-l-2 border-sky-200/70 pl-3">
-                <p className="uppercase tracking-wide text-sky-100">Hours</p>
-                <p className="font-semibold text-white">Open 24 / 7 </p>
-
-              </div>
-              <div className="border-l-2 border-sky-200/70 pl-3">
-                <p className="uppercase tracking-wide text-sky-100">Age Groups</p>
-                <p className="font-semibold text-white">6 months – 5 years</p>
-              </div>
-              <div className="border-l-2 border-sky-200/70 pl-3">
-                <p className="uppercase tracking-wide text-sky-100">Location</p>
-                <p className="font-semibold text-white">Midland, Texas</p>
-              </div>
+            <div className="mt-8 text-xs md:text-sm text-white/80">
+              Email: <span className="font-semibold">info@elsieschildcarecenter.com</span>{" "}
+              • Phone: <span className="font-semibold">(432) 215-8560</span>
             </div>
           </div>
-
-          {/* Right side card */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="w-full max-w-md rounded-3xl bg-white text-slate-900 shadow-2xl border border-slate-100 overflow-hidden">
-              <div className="px-5 pt-5 pb-3 border-b border-slate-100 flex items-center justify-between">
-                <div>
-                  <p className="text-xs font-semibold text-sky-700 uppercase tracking-wide">
-                    Your child’s second home
-                  </p>
-                  <p className="text-base font-bold">
-                    Safe, loving & learning-focused
-                  </p>
-                </div>
-                <div className="flex items-center justify-center rounded-full bg-sky-100 w-10 h-10 text-sky-700 text-lg">
-                  🧸
-                </div>
-              </div>
-
-              {/* Placeholder image */}
-              <div className="h-40 sm:h-48 bg-sky-50 flex items-center justify-center">
-                <div className="text-center px-6">
-                  <p className="text-sm font-semibold text-slate-800">
-                    Bright, child-friendly classrooms
-                  </p>
-                  <p className="mt-1 text-xs text-slate-500">
-                    Montessori-inspired spaces with cozy corners, reading nooks, and safe play areas.
-                  </p>
-                </div>
-              </div>
-
-              <div className="px-5 py-4 space-y-3 text-sm">
-                <div className="flex items-center justify-between">
-                  <span className="text-slate-600">Weekly Tuition</span>
-                  <span className="font-semibold text-slate-900">From $220/week</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-slate-600">Sibling Discount</span>
-                  <span className="font-semibold text-emerald-600">$200/week per sibling</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-slate-600">Enrollment</span>
-                  <span className="font-semibold text-sky-700">Open now ✔</span>
-                </div>
-              </div>
-
-              <div className="px-5 pb-5 pt-3 border-t border-slate-100">
-                <Link
-                  to="/contact"
-                  className="w-full inline-flex items-center justify-center rounded-full bg-sky-600 px-4 py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-sky-700 transition"
-                >
-                  Talk to the Director
-                </Link>
-                <p className="mt-2 text-[0.7rem] text-slate-400 text-center">
-                  We’ll help you find the best schedule and classroom for your child.
-                </p>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
-      {/* QUICK ACTION, PROGRAMS, WHY ELSIE’S, PARENT TOOLS, FINAL CTA */}
-      {/* (Your original code below remains unchanged — all valid) */}
-      {/* If you want me to optimize these sections visually, I can.) */}
+      {/* ============================================================
+          PHOTO CAROUSEL (Visual story)
+          ============================================================ */}
+      <section className="py-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+              A Loving Environment for Every Child
+            </h2>
+            <p className="mt-3 text-slate-600 max-w-3xl mx-auto">
+              Our space is designed to support children’s development through safe,
+              engaging activities and nurturing routines.
+            </p>
+          </div>
 
-      {/* QUICK ACTION CARDS */}
-      ...
-      {/* PROGRAMS SECTION */}
-      ...
-      {/* WHY CHOOSE ELSIE'S */}
-      ...
-      {/* PARENT TOOLS */}
-      ...
-      {/* FINAL CTA */}
-      ...
+          <div className="mt-10 relative overflow-hidden rounded-3xl shadow bg-white">
+            <img
+              src={images[index]}
+              alt="Elsie’s Childcare activities"
+              className="w-full h-[420px] object-cover"
+            />
 
+            {/* dots */}
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+              {images.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setIndex(i)}
+                  aria-label={`Go to slide ${i + 1}`}
+                  className={`h-2.5 w-2.5 rounded-full transition ${
+                    i === index ? "bg-white" : "bg-white/50"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <p className="mt-4 text-center text-xs text-slate-500">
+            Tip: replace the images in <span className="font-semibold">/public/assets/</span>
+          </p>
+        </div>
+      </section>
+
+      {/* ============================================================
+          PROBLEM WE SOLVE
+          ============================================================ */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-start">
+          <div>
+            <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
+              The Need We Solve in Midland
+            </h3>
+            <p className="mt-4 text-slate-700 leading-relaxed">
+              Many working parents face childcare shortages and limited hours. Families
+              with shift-based schedules—especially in healthcare, oil & gas, and emergency
+              services—often struggle to find consistent care beyond traditional daytime options.
+            </p>
+            <p className="mt-4 text-slate-700 leading-relaxed">
+              Elsie’s is designed to support families with flexible care options, helping parents
+              work with peace of mind while children receive safe, educational, and nurturing care.
+            </p>
+          </div>
+
+          <div className="rounded-3xl bg-slate-50 border border-slate-200 p-8">
+            <h4 className="text-lg font-bold text-slate-900">Built for Working Families</h4>
+            <ul className="mt-4 space-y-3 text-slate-700">
+              <li className="flex gap-3">
+                <span className="mt-1 h-2 w-2 rounded-full bg-sky-500 shrink-0" />
+                Designed around real schedules (including evening/overnight options as needed)
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-1 h-2 w-2 rounded-full bg-sky-500 shrink-0" />
+                Inclusive care with compassion and individualized support
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-1 h-2 w-2 rounded-full bg-sky-500 shrink-0" />
+                Strong standards and safety-first routines
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          OUR SOLUTION
+          ============================================================ */}
+      <section className="py-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center">
+            <h3 className="text-2xl md:text-3xl font-bold text-slate-900">Our Solution</h3>
+            <p className="mt-3 text-slate-600 max-w-3xl mx-auto">
+              Compassionate care meets early learning—built to help children thrive and parents feel supported.
+            </p>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="rounded-3xl bg-white shadow p-7">
+              <h4 className="text-lg font-bold text-slate-900">Safe & Nurturing Care</h4>
+              <p className="mt-2 text-slate-700">
+                A warm environment where every child is welcomed, valued, and supported.
+              </p>
+            </div>
+
+            <div className="rounded-3xl bg-white shadow p-7">
+              <h4 className="text-lg font-bold text-slate-900">Early Learning Focus</h4>
+              <p className="mt-2 text-slate-700">
+                Age-appropriate activities that support growth across physical, cognitive, and social development.
+              </p>
+            </div>
+
+            <div className="rounded-3xl bg-white shadow p-7">
+              <h4 className="text-lg font-bold text-slate-900">Flexible Options</h4>
+              <p className="mt-2 text-slate-700">
+                Designed for working parents, with scheduling options that can expand to meet demand.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          PROGRAMS PREVIEW (Grid inspired by template tiles)
+          ============================================================ */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex items-end justify-between gap-6 flex-col md:flex-row">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-900">Programs & Care</h3>
+              <p className="mt-2 text-slate-600 max-w-2xl">
+                Supportive care for infants through preschool—designed around safety, learning, and family needs.
+              </p>
+            </div>
+            <a
+              href="/programs"
+              className="rounded-full bg-sky-600 hover:bg-sky-700 text-white font-semibold px-6 py-3 transition"
+            >
+              View All Programs
+            </a>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { title: "Infant Care", desc: "6 months+ nurturing routines and safe development support." },
+              { title: "Toddler Program", desc: "Play-based learning, language growth, and social skills." },
+              { title: "Preschool Learning", desc: "Early education foundation through guided activities." },
+              { title: "Extended Care", desc: "Flexible options designed for working parent schedules." },
+            ].map((card) => (
+              <div key={card.title} className="rounded-3xl bg-slate-50 border border-slate-200 p-7">
+                <h4 className="text-lg font-bold text-slate-900">{card.title}</h4>
+                <p className="mt-2 text-slate-700">{card.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          CTA SECTION
+          ============================================================ */}
+      <section className="py-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="rounded-3xl bg-gradient-to-br from-sky-700 via-sky-600 to-indigo-700 text-white p-10 md:p-12 shadow">
+            <h3 className="text-2xl md:text-3xl font-extrabold">
+              Ready to join Elsie’s Childcare & Learning Center?
+            </h3>
+            <p className="mt-3 text-white/90 max-w-3xl">
+              Every child deserves a safe place to grow, learn, and thrive—while parents feel supported and confident.
+            </p>
+
+            <div className="mt-7 flex flex-col sm:flex-row gap-3">
+              <a
+                href="/enrollment"
+                className="inline-flex items-center justify-center rounded-full bg-pink-400 hover:bg-pink-500 px-7 py-3 font-semibold transition"
+              >
+                Start Enrollment
+              </a>
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-white text-slate-900 hover:bg-slate-100 px-7 py-3 font-semibold transition"
+              >
+                Contact Us
+              </a>
+            </div>
+
+            <div className="mt-6 text-sm text-white/90">
+              <span className="font-semibold">info@elsieschildcarecenter.com</span> •{" "}
+              <span className="font-semibold">(432) 215-8560</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
