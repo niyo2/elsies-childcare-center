@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-
+import Investors from "./pages/Investors";
+import InvestorGate from "./components/InvestorGate";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PageWrapper from "./components/PageWrapper";
@@ -47,6 +48,15 @@ export default function App() {
           <Route path="/facilities" element={<PageWrapper><Facilities /></PageWrapper>} />
 
           <Route path="/gallery" element={<PageWrapper><Gallery /></PageWrapper>} />
+          // inside <Routes>...
+<Route
+  path="/investors"
+  element={
+    <InvestorGate>
+      <Investors />
+    </InvestorGate>
+  }
+/>
 
           <Route path="/testimonials" element={<PageWrapper><Testimonials /></PageWrapper>} />
           <Route path="/staff" element={<PageWrapper><Staff /></PageWrapper>} />
