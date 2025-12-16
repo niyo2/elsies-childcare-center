@@ -30,7 +30,8 @@ import Careers from "./pages/Careers";
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-sky-700 via-sky-600 to-indigo-700">
+    {/* VIDEOGRAPH-STYLE GLOBAL BACKGROUND */}
+    <div className="min-h-screen flex flex-col bg-[#0b0c10] text-white">
       <Navbar />
 
       <main className="flex-grow">
@@ -38,7 +39,7 @@ export default function App() {
           {/* HOMEPAGE — FULLSCREEN */}
           <Route path="/" element={<Home />} />
 
-          {/* ALL OTHER PAGES INSIDE WHITE WRAPPER */}
+          {/* CONTENT PAGES (WHITE CARDS ON DARK BG) */}
           <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
           <Route path="/programs" element={<PageWrapper><Programs /></PageWrapper>} />
           <Route path="/pricing" element={<PageWrapper><Pricing /></PageWrapper>} />
@@ -46,18 +47,19 @@ export default function App() {
           <Route path="/contact" element={<PageWrapper><ContactPage /></PageWrapper>} />
           <Route path="/team" element={<PageWrapper><Team /></PageWrapper>} />
           <Route path="/facilities" element={<PageWrapper><Facilities /></PageWrapper>} />
-
           <Route path="/gallery" element={<PageWrapper><Gallery /></PageWrapper>} />
+
+          {/* INVESTOR (PASSWORD-GATED) */}
           <Route
-  path="/investors"
-  element={
-    <InvestorGate>
-      <PageWrapper>
-        <Investors />
-      </PageWrapper>
-    </InvestorGate>
-  }
-/>
+            path="/investors"
+            element={
+              <InvestorGate>
+                <PageWrapper>
+                  <Investors />
+                </PageWrapper>
+              </InvestorGate>
+            }
+          />
 
           <Route path="/testimonials" element={<PageWrapper><Testimonials /></PageWrapper>} />
           <Route path="/staff" element={<PageWrapper><Staff /></PageWrapper>} />
@@ -65,7 +67,6 @@ export default function App() {
           <Route path="/overnight-care" element={<PageWrapper><OvernightCare /></PageWrapper>} />
           <Route path="/faq" element={<PageWrapper><FAQ /></PageWrapper>} />
           <Route path="/schedule-tour" element={<PageWrapper><ScheduleTour /></PageWrapper>} />
-
           <Route path="/nutrition" element={<PageWrapper><Nutrition /></PageWrapper>} />
           <Route path="/daily-schedule" element={<PageWrapper><DailySchedule /></PageWrapper>} />
           <Route path="/curriculum" element={<PageWrapper><Curriculum /></PageWrapper>} />
