@@ -30,16 +30,13 @@ import Careers from "./pages/Careers";
 
 export default function App() {
   return (
-    {/* VIDEOGRAPH-STYLE GLOBAL BACKGROUND */}
     <div className="min-h-screen flex flex-col bg-[#0b0c10] text-white">
       <Navbar />
 
       <main className="flex-grow">
         <Routes>
-          {/* HOMEPAGE — FULLSCREEN */}
           <Route path="/" element={<Home />} />
 
-          {/* CONTENT PAGES (WHITE CARDS ON DARK BG) */}
           <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
           <Route path="/programs" element={<PageWrapper><Programs /></PageWrapper>} />
           <Route path="/pricing" element={<PageWrapper><Pricing /></PageWrapper>} />
@@ -49,7 +46,6 @@ export default function App() {
           <Route path="/facilities" element={<PageWrapper><Facilities /></PageWrapper>} />
           <Route path="/gallery" element={<PageWrapper><Gallery /></PageWrapper>} />
 
-          {/* INVESTOR (PASSWORD-GATED) */}
           <Route
             path="/investors"
             element={
@@ -74,7 +70,6 @@ export default function App() {
           <Route path="/handbook" element={<PageWrapper><ParentHandbook /></PageWrapper>} />
           <Route path="/careers" element={<PageWrapper><Careers /></PageWrapper>} />
 
-          {/* FALLBACK */}
           <Route path="*" element={<Home />} />
         </Routes>
       </main>
