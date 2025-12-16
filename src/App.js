@@ -49,14 +49,8 @@ export default function App() {
 
           <Route path="/gallery" element={<PageWrapper><Gallery /></PageWrapper>} />
           // inside <Routes>...
-<Route
-  path="/investors"
-  element={
-    <InvestorGate>
-      <Investors />
-    </InvestorGate>
-  }
-/>
+<Route path="/investors" element={ <InvestorGate><Investors /></InvestorGate>
+  PageWrapper>} />
 
           <Route path="/testimonials" element={<PageWrapper><Testimonials /></PageWrapper>} />
           <Route path="/staff" element={<PageWrapper><Staff /></PageWrapper>} />
