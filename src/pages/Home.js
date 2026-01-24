@@ -1,276 +1,311 @@
-import React, { useEffect, useState } from "react";
+// src/pages/Home.jsx
+import React from "react";
+import { Link } from "react-router-dom";
+
+function SectionCard({ children, className = "" }) {
+  return (
+    <section
+      className={
+        "rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 " + className
+      }
+    >
+      {children}
+    </section>
+  );
+}
+
+function StatPill({ label, value }) {
+  return (
+    <div className="rounded-2xl bg-white/90 ring-1 ring-white/40 px-4 py-3">
+      <div className="text-xs text-slate-600">{label}</div>
+      <div className="text-sm font-semibold text-slate-900">{value}</div>
+    </div>
+  );
+}
+
+function QuickLinkCard({ title, desc, to }) {
+  return (
+    <Link
+      to={to}
+      className="group rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 p-5 hover:shadow-md transition"
+    >
+      <div className="flex items-center justify-between gap-3">
+        <div className="text-base font-semibold text-slate-900">{title}</div>
+        <div className="text-slate-400 group-hover:text-slate-700 transition">
+          →
+        </div>
+      </div>
+      <p className="mt-2 text-sm text-slate-600">{desc}</p>
+    </Link>
+  );
+}
 
 export default function Home() {
-  // ----- Photo carousel (edit these paths to match your assets) -----
-  const images = [
-    "/assets/classroom.jpg",
-    "/assets/playtime.jpg",
-    "/assets/learning.jpg",
-    "/assets/outdoor.jpg",
-  ];
-
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const t = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 4000);
-    return () => clearInterval(t);
-  }, [images.length]);
-
   return (
-    <div className="bg-slate-50">
-      {/* ============================================================
-          HERO (Animated gradient video - calm, Montessori-friendly)
-          ============================================================ */}
-      <section className="relative h-[90vh] overflow-hidden">
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source
-            // Soft animated gradient (placeholder)
-            src="https://cdn.coverr.co/videos/coverr-soft-gradient-motion-1600.mp4"
-            type="video/mp4"
-          />
-        </video>
+    <div className="bg-transparent">
+      {/* HERO */}
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-700 via-sky-600 to-indigo-700 text-white">
+        <div className="absolute inset-0 opacity-15">
+          <div className="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-white blur-3xl" />
+          <div className="absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-white blur-3xl" />
+        </div>
 
-        {/* overlay for readability */}
-        <div className="absolute inset-0 bg-black/40" />
-
-        <div className="relative z-10 h-full flex items-center justify-center px-6">
-          <div className="max-w-4xl text-center text-white">
-            <p className="text-sm md:text-base font-semibold tracking-wide text-white/90">
-              Elsie’s Childcare & Learning Center
+        <div className="relative px-6 py-12 md:px-12 md:py-16">
+          <div className="max-w-3xl">
+            <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm ring-1 ring-white/25">
+              Caring, Love and Nurturing
             </p>
 
-            <h1 className="mt-3 text-4xl md:text-6xl font-extrabold leading-tight">
-              Caring, Love and Nurturing
+            <h1 className="mt-5 text-3xl md:text-5xl font-extrabold leading-tight">
+              Elsie’s Childcare & Learning Center
             </h1>
 
-            <p className="mt-5 text-base md:text-xl text-white/90">
-              A safe, inclusive, and flexible childcare solution for working families
-              in Midland, Texas—focused on compassionate care, early learning, and
-              strong standards.
-            </p>
-
-            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href="/enrollment"
-                className="inline-flex items-center justify-center rounded-full bg-pink-400 hover:bg-pink-500 px-7 py-3 font-semibold transition"
-              >
-                Enroll Now
-              </a>
-              <a
-                href="/schedule-tour"
-                className="inline-flex items-center justify-center rounded-full bg-white text-slate-900 hover:bg-slate-100 px-7 py-3 font-semibold transition"
-              >
-                Schedule a Tour
-              </a>
-            </div>
-
-            <div className="mt-8 text-xs md:text-sm text-white/80">
-              Email: <span className="font-semibold">info@elsieschildcarecenter.com</span>{" "}
-              • Phone: <span className="font-semibold">(432) 215-8560</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          PHOTO CAROUSEL (Visual story)
-          ============================================================ */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
-              A Loving Environment for Every Child
-            </h2>
-            <p className="mt-3 text-slate-600 max-w-3xl mx-auto">
-              Our space is designed to support children’s development through safe,
-              engaging activities and nurturing routines.
-            </p>
-          </div>
-
-          <div className="mt-10 relative overflow-hidden rounded-3xl shadow bg-white">
-            <img
-              src={images[index]}
-              alt="Elsie’s Childcare activities"
-              className="w-full h-[420px] object-cover"
-            />
-
-            {/* dots */}
-            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-              {images.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setIndex(i)}
-                  aria-label={`Go to slide ${i + 1}`}
-                  className={`h-2.5 w-2.5 rounded-full transition ${
-                    i === index ? "bg-white" : "bg-white/50"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-
-          <p className="mt-4 text-center text-xs text-slate-500">
-            Tip: replace the images in <span className="font-semibold">/public/assets/</span>
-          </p>
-        </div>
-      </section>
-
-      {/* ============================================================
-          PROBLEM WE SOLVE
-          ============================================================ */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-start">
-          <div>
-            <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
-              The Need We Solve in Midland
-            </h3>
-            <p className="mt-4 text-slate-700 leading-relaxed">
-              Many working parents face childcare shortages and limited hours. Families
-              with shift-based schedules—especially in healthcare, oil & gas, and emergency
-              services—often struggle to find consistent care beyond traditional daytime options.
-            </p>
-            <p className="mt-4 text-slate-700 leading-relaxed">
-              Elsie’s is designed to support families with flexible care options, helping parents
-              work with peace of mind while children receive safe, educational, and nurturing care.
-            </p>
-          </div>
-
-          <div className="rounded-3xl bg-slate-50 border border-slate-200 p-8">
-            <h4 className="text-lg font-bold text-slate-900">Built for Working Families</h4>
-            <ul className="mt-4 space-y-3 text-slate-700">
-              <li className="flex gap-3">
-                <span className="mt-1 h-2 w-2 rounded-full bg-sky-500 shrink-0" />
-                Designed around real schedules (including evening/overnight options as needed)
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2 w-2 rounded-full bg-sky-500 shrink-0" />
-                Inclusive care with compassion and individualized support
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2 w-2 rounded-full bg-sky-500 shrink-0" />
-                Strong standards and safety-first routines
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          OUR SOLUTION
-          ============================================================ */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-slate-900">Our Solution</h3>
-            <p className="mt-3 text-slate-600 max-w-3xl mx-auto">
-              Compassionate care meets early learning—built to help children thrive and parents feel supported.
-            </p>
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="rounded-3xl bg-white shadow p-7">
-              <h4 className="text-lg font-bold text-slate-900">Safe & Nurturing Care</h4>
-              <p className="mt-2 text-slate-700">
-                A warm environment where every child is welcomed, valued, and supported.
-              </p>
-            </div>
-
-            <div className="rounded-3xl bg-white shadow p-7">
-              <h4 className="text-lg font-bold text-slate-900">Early Learning Focus</h4>
-              <p className="mt-2 text-slate-700">
-                Age-appropriate activities that support growth across physical, cognitive, and social development.
-              </p>
-            </div>
-
-            <div className="rounded-3xl bg-white shadow p-7">
-              <h4 className="text-lg font-bold text-slate-900">Flexible Options</h4>
-              <p className="mt-2 text-slate-700">
-                Designed for working parents, with scheduling options that can expand to meet demand.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          PROGRAMS PREVIEW (Grid inspired by template tiles)
-          ============================================================ */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-end justify-between gap-6 flex-col md:flex-row">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-900">Programs & Care</h3>
-              <p className="mt-2 text-slate-600 max-w-2xl">
-                Supportive care for infants through preschool—designed around safety, learning, and family needs.
-              </p>
-            </div>
-            <a
-              href="/programs"
-              className="rounded-full bg-sky-600 hover:bg-sky-700 text-white font-semibold px-6 py-3 transition"
-            >
-              View All Programs
-            </a>
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              { title: "Infant Care", desc: "6 months+ nurturing routines and safe development support." },
-              { title: "Toddler Program", desc: "Play-based learning, language growth, and social skills." },
-              { title: "Preschool Learning", desc: "Early education foundation through guided activities." },
-              { title: "Extended Care", desc: "Flexible options designed for working parent schedules." },
-            ].map((card) => (
-              <div key={card.title} className="rounded-3xl bg-slate-50 border border-slate-200 p-7">
-                <h4 className="text-lg font-bold text-slate-900">{card.title}</h4>
-                <p className="mt-2 text-slate-700">{card.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          CTA SECTION
-          ============================================================ */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="rounded-3xl bg-gradient-to-br from-sky-700 via-sky-600 to-indigo-700 text-white p-10 md:p-12 shadow">
-            <h3 className="text-2xl md:text-3xl font-extrabold">
-              Ready to join Elsie’s Childcare & Learning Center?
-            </h3>
-            <p className="mt-3 text-white/90 max-w-3xl">
-              Every child deserves a safe place to grow, learn, and thrive—while parents feel supported and confident.
+            <p className="mt-4 text-base md:text-lg text-white/90">
+              Safe, joyful, and learning-focused childcare for ages{" "}
+              <span className="font-semibold">6 months to 5 years</span> in
+              Midland, Texas.
             </p>
 
             <div className="mt-7 flex flex-col sm:flex-row gap-3">
-              <a
-                href="/enrollment"
-                className="inline-flex items-center justify-center rounded-full bg-pink-400 hover:bg-pink-500 px-7 py-3 font-semibold transition"
+              <Link
+                to="/enrollment"
+                className="inline-flex justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-white/95"
               >
-                Start Enrollment
-              </a>
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-white text-slate-900 hover:bg-slate-100 px-7 py-3 font-semibold transition"
+                Enroll Now
+              </Link>
+              <Link
+                to="/programs"
+                className="inline-flex justify-center rounded-xl bg-white/10 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/25 hover:bg-white/15"
               >
-                Contact Us
-              </a>
+                Explore Programs
+              </Link>
             </div>
 
-            <div className="mt-6 text-sm text-white/90">
-              <span className="font-semibold">info@elsieschildcarecenter.com</span> •{" "}
-              <span className="font-semibold">(432) 215-8560</span>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-xl">
+              <StatPill label="Hours" value="Mon–Fri · 6:00 AM – 6:00 PM" />
+              <StatPill label="Tuition" value="$220/week · Siblings $200" />
+              <StatPill label="Contact" value="(432) 215-8560" />
             </div>
           </div>
         </div>
       </section>
+
+      {/* QUICK LINKS (I&M style row of blocks) */}
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <QuickLinkCard
+          title="Programs"
+          desc="Play-based learning, early literacy, and social growth."
+          to="/programs"
+        />
+        <QuickLinkCard
+          title="Pricing"
+          desc="Simple weekly tuition and sibling savings."
+          to="/pricing"
+        />
+        <QuickLinkCard
+          title="Schedule a Tour"
+          desc="Come see our classrooms and meet our team."
+          to="/schedule-tour"
+        />
+      </div>
+
+      {/* ABOUT + IMAGE BLOCK */}
+      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <SectionCard className="p-6 md:p-8">
+          <h2 className="text-xl md:text-2xl font-bold text-slate-900">
+            A Home Away From Home
+          </h2>
+          <p className="mt-3 text-sm md:text-base text-slate-600 leading-relaxed">
+            We provide a warm, structured environment where children learn
+            through play, build confidence, and develop strong routines—while
+            parents feel supported with clear communication and a welcoming
+            open-door policy.
+          </p>
+
+          <div className="mt-6 flex flex-col sm:flex-row gap-3">
+            <Link
+              to="/about"
+              className="inline-flex justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+            >
+              Learn More
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 hover:bg-slate-50"
+            >
+              Contact Us
+            </Link>
+          </div>
+        </SectionCard>
+
+        {/* Placeholder image panel (no external image needed) */}
+        <SectionCard className="p-0 overflow-hidden">
+          <div className="relative h-full min-h-[260px] bg-gradient-to-br from-rose-50 via-amber-50 to-emerald-50">
+            <div className="absolute inset-0 opacity-30">
+              <div className="absolute -top-10 left-8 h-56 w-56 rounded-full bg-rose-200 blur-3xl" />
+              <div className="absolute top-10 right-10 h-56 w-56 rounded-full bg-emerald-200 blur-3xl" />
+            </div>
+            <div className="relative p-6 md:p-8">
+              <div className="text-sm font-semibold text-slate-800">
+                Clean, calm learning spaces
+              </div>
+              <p className="mt-2 text-sm text-slate-600 max-w-md">
+                Swap this panel with your real facility photo anytime (I can
+                wire it to your uploaded images/logo).
+              </p>
+
+              <div className="mt-6 grid grid-cols-2 gap-3 max-w-md">
+                <div className="rounded-2xl bg-white/80 ring-1 ring-slate-200 p-4">
+                  <div className="text-xs text-slate-600">Learning</div>
+                  <div className="text-sm font-semibold text-slate-900">
+                    Play-Based Curriculum
+                  </div>
+                </div>
+                <div className="rounded-2xl bg-white/80 ring-1 ring-slate-200 p-4">
+                  <div className="text-xs text-slate-600">Care</div>
+                  <div className="text-sm font-semibold text-slate-900">
+                    Safety-Focused Support
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </SectionCard>
+      </div>
+
+      {/* PROGRAMS PREVIEW */}
+      <div className="mt-8">
+        <SectionCard className="p-6 md:p-8">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-slate-900">
+                Programs for Every Stage
+              </h2>
+              <p className="mt-2 text-sm md:text-base text-slate-600">
+                Age-appropriate activities that support growth in language,
+                movement, and social-emotional skills.
+              </p>
+            </div>
+            <Link
+              to="/programs"
+              className="inline-flex justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 hover:bg-slate-50"
+            >
+              View All Programs
+            </Link>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              {
+                title: "Infants (6–18 months)",
+                desc: "Gentle care, sensory play, and secure routines.",
+              },
+              {
+                title: "Toddlers (18–36 months)",
+                desc: "Language growth, movement, and social play.",
+              },
+              {
+                title: "Preschool (3–5 years)",
+                desc: "Early literacy, creativity, and school readiness.",
+              },
+            ].map((x) => (
+              <div
+                key={x.title}
+                className="rounded-2xl bg-slate-50 ring-1 ring-slate-200 p-5"
+              >
+                <div className="text-base font-semibold text-slate-900">
+                  {x.title}
+                </div>
+                <p className="mt-2 text-sm text-slate-600">{x.desc}</p>
+              </div>
+            ))}
+          </div>
+        </SectionCard>
+      </div>
+
+      {/* TESTIMONIAL STRIP */}
+      <div className="mt-8">
+        <SectionCard className="p-6 md:p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div className="lg:col-span-1">
+              <h2 className="text-xl md:text-2xl font-bold text-slate-900">
+                What Parents Say
+              </h2>
+              <p className="mt-2 text-sm md:text-base text-slate-600">
+                Trust, safety, and a welcoming environment matter.
+              </p>
+              <Link
+                to="/testimonials"
+                className="mt-4 inline-flex rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+              >
+                Read Testimonials
+              </Link>
+            </div>
+
+            {[
+              {
+                quote:
+                  "The staff is caring and communication is excellent. My child loves going every morning.",
+                name: "Parent Review",
+              },
+              {
+                quote:
+                  "Clean space, safe routines, and learning through play—exactly what we wanted.",
+                name: "Parent Review",
+              },
+            ].map((t, idx) => (
+              <div
+                key={idx}
+                className="rounded-2xl bg-slate-50 ring-1 ring-slate-200 p-5"
+              >
+                <p className="text-sm text-slate-700 leading-relaxed">
+                  “{t.quote}”
+                </p>
+                <div className="mt-3 text-xs font-semibold text-slate-900">
+                  — {t.name}
+                </div>
+              </div>
+            ))}
+          </div>
+        </SectionCard>
+      </div>
+
+      {/* CONTACT CTA */}
+      <div className="mt-8">
+        <SectionCard className="p-6 md:p-8">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-slate-900">
+                Ready to visit?
+              </h2>
+              <p className="mt-2 text-sm md:text-base text-slate-600">
+                Email us at <span className="font-semibold">info@elsieschildcarecenter.com</span>{" "}
+                or call <span className="font-semibold">(432) 215-8560</span>.
+              </p>
+              <p className="mt-1 text-sm text-slate-600">
+                Business hours: <span className="font-semibold">Mon–Fri, 6:00 AM – 6:00 PM</span>
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                to="/schedule-tour"
+                className="inline-flex justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+              >
+                Schedule a Tour
+              </Link>
+              <Link
+                to="/enrollment"
+                className="inline-flex justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 hover:bg-slate-50"
+              >
+                Start Enrollment
+              </Link>
+            </div>
+          </div>
+        </SectionCard>
+      </div>
+
+      <div className="h-10" />
     </div>
   );
 }

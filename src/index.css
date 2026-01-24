@@ -9,10 +9,8 @@
   --accent: #7C3AED;
 }
 
-/* Base Body Styling */
-body { 
-  @apply bg-white text-gray-800; 
-}
+html, body, #root { height: 100%; }
+body { @apply bg-white text-gray-800; }
 
 .container { 
   @apply max-w-5xl mx-auto px-4; 
