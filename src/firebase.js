@@ -1,8 +1,7 @@
-// src/firebase.js
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-// Your Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyD9cvhrnXo7fhOpnh8Z0jx0nnKr5N0xGCQ",
   authDomain: "elsies-childcare-center.firebaseapp.com",
@@ -12,9 +11,6 @@ const firebaseConfig = {
   appId: "1:998103515055:web:7abd07744abb76132b795a"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// Firestore Database
+export const auth = getAuth(app);
 export const db = getFirestore(app);
-

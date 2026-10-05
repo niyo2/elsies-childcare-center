@@ -16,7 +16,7 @@ export default function Footer() {
             className="h-16 w-auto drop-shadow"
           />
           <p className="text-sm text-white/80">
-            Guiding little minds with gentle hands.
+            Guiding Little Minds with Gentle Hands, from Daylight to Moonlight.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export default function Footer() {
               info@elsieschildcarecenter.com
             </a>
           </p>
-          <p className="text-sm font-semibold mt-2"> Open 24 / 7 </p>
+          <p className="text-sm font-semibold mt-2">Day program: Mon–Fri · 6:00 AM–6:00 PM</p>
         </div>
       </div>
 

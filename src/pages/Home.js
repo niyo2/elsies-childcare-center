@@ -53,7 +53,7 @@ export default function Home() {
         <div className="relative px-6 py-12 md:px-12 md:py-16">
           <div className="max-w-3xl">
             <p className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm ring-1 ring-white/25">
-              Caring, Love and Nurturing
+              Guiding Little Minds with Gentle Hands, from Daylight to Moonlight.
             </p>
 
             <h1 className="mt-5 text-3xl md:text-5xl font-extrabold leading-tight">
@@ -68,7 +68,7 @@ export default function Home() {
 
             <div className="mt-7 flex flex-col sm:flex-row gap-3">
               <Link
-                to="/enrollment"
+                to="/enroll"
                 className="inline-flex justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-white/95"
               >
                 Enroll Now
@@ -150,8 +150,7 @@ export default function Home() {
                 Clean, calm learning spaces
               </div>
               <p className="mt-2 text-sm text-slate-600 max-w-md">
-                Swap this panel with your real facility photo anytime (I can
-                wire it to your uploaded images/logo).
+                A welcoming environment designed for play, discovery, rest, and age-appropriate learning.
               </p>
 
               <div className="mt-6 grid grid-cols-2 gap-3 max-w-md">
@@ -197,11 +196,11 @@ export default function Home() {
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               {
-                title: "Infants (6–18 months)",
+                title: "Infants (6–17 months)",
                 desc: "Gentle care, sensory play, and secure routines.",
               },
               {
-                title: "Toddlers (18–36 months)",
+                title: "Toddlers (18–35 months)",
                 desc: "Language growth, movement, and social play.",
               },
               {
@@ -295,7 +294,7 @@ export default function Home() {
                 Schedule a Tour
               </Link>
               <Link
-                to="/enrollment"
+                to="/enroll"
                 className="inline-flex justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 hover:bg-slate-50"
               >
                 Start Enrollment

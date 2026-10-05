@@ -1,36 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
-const STAFF = [
-  { id: 1, name: "Irene Uwitonze", position: "Director" },
-  { id: 2, name: "Lead Teacher", position: "Preschool Lead" },
-  { id: 3, name: "Assistant Teacher", position: "Toddler Room" },
-];
-
-export default function Staff() {
-  return (
-    <div className="space-y-8">
-      <header className="border-b border-slate-200 pb-4">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Meet the Staff</h1>
-        <p className="mt-2 text-slate-600 max-w-2xl">
-          A dedicated team of caregivers and educators who ensure each child feels 
-          safe, supported, and encouraged to grow.
-        </p>
-      </header>
-
-      <section className="grid gap-6 md:grid-cols-3">
-        {STAFF.map((s) => (
-          <Link
-            key={s.id}
-            to={`/staff/${s.id}`}
-            className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-5 hover:shadow-lg transition"
-          >
-            <div className="w-20 h-20 bg-sky-200 rounded-full mx-auto mb-4"></div>
-            <h2 className="text-lg font-semibold text-center text-slate-900">{s.name}</h2>
-            <p className="text-sm text-center text-sky-700">{s.position}</p>
-          </Link>
-        ))}
-      </section>
-    </div>
-  );
-}
+import React from "react";import {Link} from "react-router-dom";
+const staff=[{id:"irene",name:"Irene Uwitonze",position:"Owner & Director",img:"/staff/irene.jpg"},{id:"maria",name:"Ms. Maria",position:"Lead Infant Teacher",img:"/staff/maria.jpg"},{id:"grace",name:"Ms. Grace",position:"Toddler Teacher",img:"/staff/grace.jpg"},{id:"daniel",name:"Mr. Daniel",position:"Preschool Teacher",img:"/staff/daniel.jpg"}];
+export default function Staff(){return <div className="space-y-7"><header><h1 className="text-3xl font-bold text-slate-900">Meet Our Team</h1><p className="mt-2 text-slate-600">Caring educators supporting children through each stage of early learning.</p></header><div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{staff.map(s=><Link key={s.id} to={`/staff/${s.id}`} className="overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 hover:shadow-md"><img src={s.img} alt={s.name} className="h-56 w-full object-cover"/><div className="p-5"><h2 className="text-lg font-bold text-slate-900">{s.name}</h2><p className="text-sm text-sky-700">{s.position}</p></div></Link>)}</div></div>}
