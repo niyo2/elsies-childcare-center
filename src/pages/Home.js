@@ -81,9 +81,8 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-xl">
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl">
               <StatPill label="Hours" value="Mon–Fri · 6:00 AM – 6:00 PM" />
-              <StatPill label="Tuition" value="$220/week · Siblings $200" />
               <StatPill label="Contact" value="(432) 215-8560" />
             </div>
           </div>
@@ -91,16 +90,11 @@ export default function Home() {
       </section>
 
       {/* QUICK LINKS (I&M style row of blocks) */}
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
         <QuickLinkCard
           title="Programs"
           desc="Play-based learning, early literacy, and social growth."
           to="/programs"
-        />
-        <QuickLinkCard
-          title="Pricing"
-          desc="Simple weekly tuition and sibling savings."
-          to="/pricing"
         />
         <QuickLinkCard
           title="Schedule a Tour"

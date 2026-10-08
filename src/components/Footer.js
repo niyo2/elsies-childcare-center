@@ -27,7 +27,6 @@ export default function Footer() {
             <li><Link to="/about" className="hover:text-brandBlueLight">About</Link></li>
             <li><Link to="/programs" className="hover:text-brandBlueLight">Programs</Link></li>
             <li><Link to="/curriculum" className="hover:text-brandBlueLight">Curriculum</Link></li>
-            <li><Link to="/pricing" className="hover:text-brandBlueLight">Pricing</Link></li>
           </ul>
         </div>
 
@@ -46,7 +45,7 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold text-lg mb-3">Contact</h3>
 
-          <p className="text-sm text-white/80">Midland, Texas</p>
+          <p className="text-sm text-white/80">101 W Parker Ave<br />Midland, TX 79701</p>
 
           {/* PHONE */}
           <p className="text-sm text-white/80">
