@@ -5,7 +5,7 @@ const SCHEDULE = [
   ["9:00 – 11:00 AM", "Circle time, learning centers, outdoor play"],
   ["11:30 AM – 1:30 PM", "Lunch, nap/rest time"],
   ["2:00 – 4:00 PM", "Small group activities, art, music"],
-  ["4:00 – 6:00 PM", "Snack, calm activities, pick-up"],
+  ["4:00 – 5:30 PM", "Snack, calm activities, pick-up"],
 ];
 
 export default function DailySchedule() {

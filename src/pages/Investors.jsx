@@ -59,15 +59,15 @@ export default function Investors() {
           {/* Key metrics (you can edit these anytime) */}
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <Metric label="Location" value="Midland, TX" />
-            <Metric label="Target Ages" value="6 months – 5 years" />
-            <Metric label="Model" value="Day + Overnight Options" />
+            <Metric label="Target Ages" value="6 months – 2 years" />
+            <Metric label="Model" value="Infant & Toddler Daycare" />
             <Metric label="Focus" value="Inclusive, Safety-first Care" />
           </div>
 
           <Section title="The Need We Solve">
             <p>
               Midland’s workforce includes oil & gas, healthcare, emergency services, and other
-              shift-based roles. A key gap is the lack of dependable late-night and overnight care,
+              shift-based roles. A key gap is the lack of dependable reliable infant and toddler childcare,
               which forces families into unsafe or unstable arrangements and limits employment
               flexibility for parents. This is a core problem Elsie’s is designed to address.
             </p>
@@ -76,7 +76,7 @@ export default function Investors() {
           <Section title="Our Solution">
             <p>
               Elsie’s Childcare & Learning Center is designed to provide flexible scheduling with
-              daytime care and scalable overnight options as demand supports, while maintaining
+              weekday infant and toddler care for local families, while maintaining
               a high standard of education, safety, and compassion for every child—including
               children with medical conditions or developmental delays.
             </p>

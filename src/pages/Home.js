@@ -62,7 +62,7 @@ export default function Home() {
 
             <p className="mt-4 text-base md:text-lg text-white/90">
               Safe, joyful, and learning-focused childcare for ages{" "}
-              <span className="font-semibold">6 months to 5 years</span> in
+              <span className="font-semibold">6 months to 2 years</span> in
               Midland, Texas.
             </p>
 
@@ -82,7 +82,7 @@ export default function Home() {
             </div>
 
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl">
-              <StatPill label="Hours" value="Mon–Fri · 6:00 AM – 6:00 PM" />
+              <StatPill label="Hours" value="Mon–Fri · 7:00 AM – 5:30 PM" />
               <StatPill label="Contact" value="(432) 215-8560" />
             </div>
           </div>
@@ -187,20 +187,17 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               {
                 title: "Infants (6–17 months)",
                 desc: "Gentle care, sensory play, and secure routines.",
               },
               {
-                title: "Toddlers (18–35 months)",
+                title: "Toddlers (18–24 months)",
                 desc: "Language growth, movement, and social play.",
               },
-              {
-                title: "Preschool (3–5 years)",
-                desc: "Early literacy, creativity, and school readiness.",
-              },
+
             ].map((x) => (
               <div
                 key={x.title}
@@ -276,7 +273,7 @@ export default function Home() {
                 or call <span className="font-semibold">(432) 215-8560</span>.
               </p>
               <p className="mt-1 text-sm text-slate-600">
-                Business hours: <span className="font-semibold">Mon–Fri, 6:00 AM – 6:00 PM</span>
+                Business hours: <span className="font-semibold">Mon–Fri, 7:00 AM – 5:30 PM</span>
               </p>
             </div>
 

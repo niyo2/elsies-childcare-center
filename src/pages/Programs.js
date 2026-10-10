@@ -13,7 +13,7 @@ export default function Programs() {
             Our Programs & Care
           </h1>
           <p className="mt-4 text-lg text-white/90 max-w-3xl mx-auto">
-            Thoughtfully designed programs that support children’s development
+            Infant and toddler programs for children ages 6 months to 2 years, supporting their development
             while meeting the needs of working families.
           </p>
         </div>
@@ -32,7 +32,7 @@ export default function Programs() {
             early learning experiences in a safe, nurturing environment. Our
             programs are built to support physical, cognitive, social, and
             emotional development while providing families with dependable and
-            flexible childcare options.
+            reliable weekday childcare.
           </p>
         </div>
       </section>
@@ -48,7 +48,7 @@ export default function Programs() {
               Infant Care
             </h3>
             <p className="mt-2 text-sm text-slate-500">
-              Ages: 6 months+
+              Ages: 6–17 months
             </p>
             <p className="mt-4 text-slate-700 leading-relaxed">
               Our infant care program focuses on providing a calm, safe, and
@@ -69,7 +69,7 @@ export default function Programs() {
               Toddler Program
             </h3>
             <p className="mt-2 text-sm text-slate-500">
-              Ages: 1 – 2 years
+              Ages: 18–24 months
             </p>
             <p className="mt-4 text-slate-700 leading-relaxed">
               Our toddler program encourages curiosity, language development,
@@ -84,47 +84,6 @@ export default function Programs() {
             </ul>
           </div>
 
-          {/* Preschool Program */}
-          <div className="rounded-3xl bg-slate-50 border border-slate-200 p-8">
-            <h3 className="text-xl font-bold text-slate-900">
-              Preschool Learning
-            </h3>
-            <p className="mt-2 text-sm text-slate-500">
-              Ages: 3 – 5 years
-            </p>
-            <p className="mt-4 text-slate-700 leading-relaxed">
-              Our preschool program provides a strong foundation for school
-              readiness through structured learning and creative exploration.
-              Activities are designed to foster confidence, problem-solving, and
-              early academic skills.
-            </p>
-            <ul className="mt-4 space-y-2 text-slate-700">
-              <li>• Early literacy and numeracy activities</li>
-              <li>• Creative arts and imaginative play</li>
-              <li>• Social-emotional development</li>
-            </ul>
-          </div>
-
-          {/* Extended & Flexible Care */}
-          <div className="rounded-3xl bg-slate-50 border border-slate-200 p-8">
-            <h3 className="text-xl font-bold text-slate-900">
-              Extended & Flexible Care
-            </h3>
-            <p className="mt-2 text-sm text-slate-500">
-              Daytime, evening, and overnight options (as demand supports)
-            </p>
-            <p className="mt-4 text-slate-700 leading-relaxed">
-              Designed with working parents in mind, our extended care options
-              provide flexibility beyond traditional childcare hours. These
-              services support families with non-traditional schedules while
-              maintaining the same high standards of care and safety.
-            </p>
-            <ul className="mt-4 space-y-2 text-slate-700">
-              <li>• Support for shift-based work schedules</li>
-              <li>• Safe evening and overnight routines</li>
-              <li>• Consistent care standards at all hours</li>
-            </ul>
-          </div>
         </div>
       </section>
 

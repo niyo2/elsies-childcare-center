@@ -7,9 +7,9 @@ const OPENINGS = [
     desc: "Support lead teachers with daily routines, activities, and ensuring a safe and nurturing environment.",
   },
   {
-    title: "Preschool Lead Teacher",
+    title: "Infant Care Lead Teacher",
     type: "Full-Time",
-    desc: "Plan lessons, lead classroom activities, and guide children through early learning milestones.",
+    desc: "Lead age-appropriate infant activities, support daily routines, and promote safe early development.",
   },
 ];
 

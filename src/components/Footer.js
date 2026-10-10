@@ -62,7 +62,7 @@ export default function Footer() {
               info@elsieschildcarecenter.com
             </a>
           </p>
-          <p className="text-sm font-semibold mt-2">Day program: Mon–Fri · 6:00 AM–6:00 PM</p>
+          <p className="text-sm font-semibold mt-2">Day program: Mon–Fri · 7:00 AM–5:30 PM</p>
         </div>
       </div>
 

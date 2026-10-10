@@ -3,11 +3,11 @@ import React from "react";
 const FAQS = [
   {
     q: "What ages do you accept?",
-    a: "We enroll children ages 6 months to 5 years.",
+    a: "We enroll children ages 6 months to 2 years.",
   },
   {
     q: "What are your operating hours?",
-    a: "We are open Monday to Friday, 6 AM – 6 PM, with overnight care available for select families.",
+    a: "We are open Monday to Friday, 7 AM – 5:30 PM.",
   },
   {
     q: "Do you provide meals?",

@@ -8,8 +8,8 @@ const TEAM = [
   },
   {
     name: "Lead Teacher",
-    role: "Preschool Lead",
-    bio: "Experienced in early childhood education with a passion for guiding children through early literacy, math, and social skills.",
+    role: "Infant Care Lead",
+    bio: "Experienced in early childhood education with a passion for supporting infants through sensory exploration, responsive care, and early development.",
   },
   {
     name: "Assistant Teacher",

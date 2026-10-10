@@ -13,7 +13,7 @@ const EVENTS = [
   },
   {
     date: "May 20",
-    title: "Preschool Graduation",
+    title: "Family Celebration Day",
     desc: "A special celebration for our little graduates heading to kindergarten.",
   },
 ];
